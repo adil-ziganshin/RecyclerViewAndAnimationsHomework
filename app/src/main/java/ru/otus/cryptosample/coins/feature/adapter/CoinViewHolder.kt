@@ -33,4 +33,12 @@ class CoinViewHolder(
             fireBadge.isVisible = coin.highlight
         }
     }
+
+    fun bind(coin: CoinState, payloads: List<Any>) {
+        if (CoinDiff.Payload.HOT_MOVER_CHANGED in payloads) {
+            binding.fireBadge.isVisible = coin.highlight
+        } else {
+            bind(coin)
+        }
+    }
 }
